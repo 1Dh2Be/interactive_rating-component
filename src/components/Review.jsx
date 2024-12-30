@@ -1,6 +1,15 @@
 import star from "../assets/images/icon-star.svg";
+import { useReview } from "./ReviewContext";
 
 const Review = () => {
+  const { starRating, setStarRating } = useReview();
+
+  const handleInputClick = (e) => {
+    const rating = e.currentTarget.value;
+    setStarRating(rating);
+    console.log(rating);
+  };
+
   return (
     <section className="w-screen h-screen flex justify-center items-center">
       <div className="w-11/12 h-[45%] bg-neutral-darkBlue rounded-2xl p-6 flex flex-col gap-4">
@@ -22,6 +31,7 @@ const Review = () => {
                   name="rating"
                   value={item}
                   hidden={true}
+                  onClick={(e) => handleInputClick(e)}
                 />
                 <span
                   className="flex justify-center items-center w-12 h-12 font-bold bg-neutral-slightlyLighterDarkBlue rounded-full cursor-pointer
@@ -35,7 +45,14 @@ const Review = () => {
           ))}
         </ul>
 
-        <button className="bg-primary-orange p-3 text-neutral-veryDarkBlue text-xl font-bold uppercase rounded-3xl hover:bg-white transition-all">
+        <button
+          className={`bg-primary-orange p-3 text-neutral-veryDarkBlue text-xl font-bold uppercase rounded-3xl transition-all ${
+            starRating
+              ? "opacity-100 hover:bg-white"
+              : "opacity-60 cursor-not-allowed"
+          }`}
+          disabled={!starRating}
+        >
           submit
         </button>
       </div>

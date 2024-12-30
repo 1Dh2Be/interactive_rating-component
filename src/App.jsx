@@ -1,11 +1,14 @@
 import Review from "./components/Review";
 import ThankYou from "./components/ThankYou";
+import { ReviewProvider } from "./components/ReviewContext";
 
 function App() {
   return (
     <>
-      <Review />
-      <ThankYou />
+      <ReviewProvider>
+        <Review />
+        <ThankYou />
+      </ReviewProvider>
     </>
   );
 }
