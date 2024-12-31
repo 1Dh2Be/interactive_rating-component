@@ -7,10 +7,17 @@ export const ReviewContext = createContext();
 export const ReviewProvider = ({ children }) => {
   const [starRating, setStarRating] = useState();
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [currentStage, setCurrentStage] = useState("button");
 
   return (
-    <ReviewContext.Provider value={{ starRating, setStarRating, isSubmitted, setIsSubmitted }}>
+    <ReviewContext.Provider
+      value={{
+        starRating,
+        setStarRating,
+        currentStage,
+        setCurrentStage,
+      }}
+    >
       {children}
     </ReviewContext.Provider>
   );

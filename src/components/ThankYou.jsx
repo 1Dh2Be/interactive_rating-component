@@ -1,21 +1,28 @@
 import thankYou from "../assets/images/illustration-thank-you.svg";
+import { IoClose } from "react-icons/io5";
 import { useReview } from "./ReviewContext";
 
 const ThankYou = () => {
+  const { starRating, setCurrentStage } = useReview();
 
-  const {starRating} = useReview();
+  const closeComponent = () => {
+    setCurrentStage("button");
+  };
 
   return (
-    <section className="w-screen h-screen flex justify-center items-center">
-      <div className="w-11/12 h-[45%] bg-neutral-darkBlue rounded-2xl py-6 px-4 flex flex-col items-center gap-4">
-        <div className="w-full flex justify-center items-center mb-2">
+    <section className="flex h-screen w-screen items-center justify-center">
+      <div className="relative flex h-[45%] w-11/12 flex-col items-center gap-4 rounded-2xl bg-neutral-darkBlue px-4 py-6">
+        <div className="absolute right-7" onClick={closeComponent}>
+          <IoClose size="30px" />
+        </div>
+        <div className="mb-2 flex w-full items-center justify-center">
           <img src={thankYou} alt="Star Icon" />
         </div>
-        <div className=" bg-neutral-slightlyLighterDarkBlue text-primary-orange py-1 px-4 rounded-3xl text-lg mb-6">
+        <div className="mb-6 rounded-3xl bg-neutral-slightlyLighterDarkBlue px-4 py-1 text-lg text-primary-orange">
           {`You selected ${starRating} out of 5`}
         </div>
         <h2 className="text-4xl">Thank you!</h2>
-        <p className="text-neutral-lightGrey text-base text-center">
+        <p className="text-center text-base text-neutral-lightGrey">
           We appreciate you taking the time to give a rating. If you ever need
           more support, don't hesitate to get in touch!
         </p>
