@@ -1,14 +1,18 @@
 import Review from "./components/Review";
 import ThankYou from "./components/ThankYou";
-import { ReviewProvider } from "./components/ReviewContext";
+import { useReview } from "./components/ReviewContext";
 
 function App() {
+
+  const {isSubmitted} = useReview();
+
+
   return (
     <>
-      <ReviewProvider>
-        <Review />
-        <ThankYou />
-      </ReviewProvider>
+        {!isSubmitted &&
+        <Review /> }
+        {isSubmitted && 
+        <ThankYou />}
     </>
   );
 }

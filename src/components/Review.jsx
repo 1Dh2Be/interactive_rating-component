@@ -2,13 +2,19 @@ import star from "../assets/images/icon-star.svg";
 import { useReview } from "./ReviewContext";
 
 const Review = () => {
-  const { starRating, setStarRating } = useReview();
+  const { starRating, setStarRating, isSubmitted, setIsSubmitted } = useReview();
 
   const handleInputClick = (e) => {
     const rating = e.currentTarget.value;
     setStarRating(rating);
     console.log(rating);
   };
+
+  const handleSubmit = () => {
+    setIsSubmitted(true)
+    console.log(isSubmitted)
+  }
+
 
   return (
     <section className="w-screen h-screen flex justify-center items-center">
@@ -52,6 +58,7 @@ const Review = () => {
               : "opacity-60 cursor-not-allowed"
           }`}
           disabled={!starRating}
+          onClick={handleSubmit}
         >
           submit
         </button>

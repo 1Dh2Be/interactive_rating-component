@@ -7,8 +7,10 @@ export const ReviewContext = createContext();
 export const ReviewProvider = ({ children }) => {
   const [starRating, setStarRating] = useState();
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   return (
-    <ReviewContext.Provider value={{ starRating, setStarRating }}>
+    <ReviewContext.Provider value={{ starRating, setStarRating, isSubmitted, setIsSubmitted }}>
       {children}
     </ReviewContext.Provider>
   );
