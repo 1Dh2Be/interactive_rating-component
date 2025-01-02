@@ -12,6 +12,15 @@ const OpenButton = () => {
       <motion.button
         className="rounded bg-primary-orange p-2"
         onClick={openReview}
+        whileHover={{
+          rotate: [0, 10, -10, 10, -10, 0],
+          scale: 1.3,
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         Open Review
       </motion.button>

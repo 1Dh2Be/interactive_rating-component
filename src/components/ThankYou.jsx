@@ -11,8 +11,11 @@ const ThankYou = () => {
 
   return (
     <section className="flex h-screen w-screen items-center justify-center">
-      <div className="relative flex h-[45%] w-11/12 flex-col items-center gap-4 rounded-2xl bg-neutral-darkBlue px-4 py-6">
-        <div className="absolute right-7" onClick={closeComponent}>
+      <div className="relative flex h-[45%] w-11/12 max-w-sm flex-col items-center gap-4 rounded-2xl bg-neutral-darkBlue px-4 py-6">
+        <div
+          className="absolute right-7 cursor-pointer"
+          onClick={closeComponent}
+        >
           <IoClose size="30px" />
         </div>
         <div className="mb-2 flex w-full items-center justify-center">

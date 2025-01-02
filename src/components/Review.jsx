@@ -16,7 +16,7 @@ const Review = () => {
 
   return (
     <section className="flex h-screen w-screen items-center justify-center">
-      <div className="flex h-[45%] w-11/12 flex-col gap-4 rounded-2xl bg-neutral-darkBlue p-6">
+      <div className="flex h-[45%] w-11/12 max-w-sm flex-col gap-4 rounded-2xl bg-neutral-darkBlue p-6">
         <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-slightlyLighterDarkBlue shadow-xl">
           <img src={star} alt="Star Icon" />
         </div>
