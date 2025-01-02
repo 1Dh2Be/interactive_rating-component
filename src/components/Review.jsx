@@ -1,5 +1,24 @@
+import { motion } from "motion/react";
 import star from "../assets/images/icon-star.svg";
 import { useReview } from "./ReviewContext";
+
+const reviewVariant = {
+  scaleStart: { scale: 0 },
+  scaleEnd: {
+    scale: 1,
+    transition: {
+      ease: "easeInOut",
+      duration: 0.3,
+    },
+  },
+  exitAnimation: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+      duration: 0.3,
+    },
+  },
+};
 
 const Review = () => {
   const { starRating, setStarRating, setCurrentStage } = useReview();
@@ -16,7 +35,13 @@ const Review = () => {
 
   return (
     <section className="flex h-screen w-screen items-center justify-center">
-      <div className="flex h-[45%] w-11/12 max-w-sm flex-col gap-4 rounded-2xl bg-neutral-darkBlue p-6">
+      <motion.div
+        variants={reviewVariant}
+        initial="scaleStart"
+        animate="scaleEnd"
+        exit="exitAnimation"
+        className="flex h-[45%] w-11/12 max-w-sm flex-col gap-4 rounded-2xl bg-neutral-darkBlue p-6"
+      >
         <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-slightlyLighterDarkBlue shadow-xl">
           <img src={star} alt="Star Icon" />
         </div>
@@ -56,7 +81,7 @@ const Review = () => {
         >
           submit
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 };

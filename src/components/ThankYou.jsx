@@ -1,6 +1,25 @@
 import thankYou from "../assets/images/illustration-thank-you.svg";
 import { IoClose } from "react-icons/io5";
 import { useReview } from "./ReviewContext";
+import { motion } from "motion/react";
+
+const thankYouVariant = {
+  startX: { x: "100vw" },
+  endX: {
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+    },
+  },
+  exitAnimation: {
+    x: "-100vw",
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+    },
+  },
+};
 
 const ThankYou = () => {
   const { starRating, setCurrentStage } = useReview();
@@ -11,7 +30,13 @@ const ThankYou = () => {
 
   return (
     <section className="flex h-screen w-screen items-center justify-center">
-      <div className="relative flex h-[45%] w-11/12 max-w-sm flex-col items-center gap-4 rounded-2xl bg-neutral-darkBlue px-4 py-6">
+      <motion.div
+        variants={thankYouVariant}
+        initial="startX"
+        animate="endX"
+        exit="exitAnimation"
+        className="relative flex h-[45%] w-11/12 max-w-sm flex-col items-center gap-4 rounded-2xl bg-neutral-darkBlue px-4 py-6"
+      >
         <div
           className="absolute right-7 cursor-pointer"
           onClick={closeComponent}
@@ -29,7 +54,7 @@ const ThankYou = () => {
           We appreciate you taking the time to give a rating. If you ever need
           more support, don't hesitate to get in touch!
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 };
