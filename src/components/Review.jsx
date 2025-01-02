@@ -62,7 +62,7 @@ const Review = () => {
                   hidden={true}
                   onClick={(e) => handleInputClick(e)}
                 />
-                <span className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-neutral-slightlyLighterDarkBlue font-bold hover:bg-primary-orange hover:text-neutral-veryDarkBlue peer-checked:bg-white peer-checked:text-neutral-veryDarkBlue">
+                <span className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-neutral-slightlyLighterDarkBlue font-bold transition-all ease-in-out hover:bg-primary-orange hover:text-neutral-veryDarkBlue peer-checked:bg-white peer-checked:text-neutral-veryDarkBlue">
                   {item}
                 </span>
               </label>
